@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Calendario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <LINK REL="stylesheet" TYPE="text/css" HREF="css.css">
+        <script type="text/javascript">
+            var fecha = new Date();
+
+            function calendario() {
+                var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                var diasemana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+                var nombremes = meses[fecha.getMonth()];
+                var diauno = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
+                var ultimodia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0)
+                var mihtml;
+                var posicionuno = diauno.getDay() - 2;
+                var posicion = 0;
+
+                mihtml = "<table><th colspan='7'><a href=# onclick='resta()'><<</a>" + "  " + nombremes + " " + fecha.getFullYear() + "  " + "<a href=# onclick='suma()'>>></a></th><tr>";
+
+                for (var i = 0; i < diasemana.length; i++) {
+                    mihtml += "<td class='diasemana'>" + diasemana[i] + "</td>";
+                }
+
+                mihtml += "<tr>";
+
+                while (posicionuno > posicion) {
+                    mihtml += "<td></td>";
+                    posicion++;
+                }
+
+                mihtml += "<td></td>";
+                var dias = ultimodia.getDate() + 1;
+                for (var fila = 1; fila < dias; fila++) {
+                    if (posicion === 6) {
+                        mihtml += "<tr>";
+                        mihtml += "<td>" + fila + "</td>";
+                        posicion = 0;
+                    } else
+                    if (posicion === 0) {
+                        mihtml += "<td>" + fila + "</td>";
+                        posicion++;
+                    } else {
+                        mihtml += "<td>" + fila + "</td>";
+                        posicion++;
+                    }
+                }
+                document.getElementById("contenedor").innerHTML = mihtml;
+            }
+
+            function suma() {
+                fecha.setMonth(fecha.getMonth() + 1);
+                calendario();
+            }
+            function resta() {
+                calendario(fecha.setMonth(fecha.getMonth() - 1));
+            }
+        </script>
+
+        <div id="top" align="center">
+            <button onclick = "calendario()" > Pincha aquí </button>
+        </div>
+        <div id="contenedor" align="center">
+
+        </div>
+    </body>
+</html>
