@@ -20,12 +20,12 @@ and open the template in the editor.
                 var diasemana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
                 var nombremes = meses[fecha.getMonth()];
                 var diauno = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
-                var ultimodia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0)
+                var ultimodia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0);
                 var mihtml;
                 var posicionuno = diauno.getDay() - 2;
                 var posicion = 0;
 
-                mihtml = "<table><th colspan='7'><a href=# onclick='resta()'><<</a>" + "  " + nombremes + " " + fecha.getFullYear() + "  " + "<a href=# onclick='suma()'>>></a></th><tr>";
+                mihtml = "<table class='tabla'><th class='cabecera' colspan='7'><a class='boton' href=# onclick='resta()'><<</a>" + "  " + nombremes + " " + fecha.getFullYear() + "  " + "<a href=# class='boton' onclick='suma()'>>></a></th><tr>";
 
                 for (var i = 0; i < diasemana.length; i++) {
                     mihtml += "<td class='diasemana'>" + diasemana[i] + "</td>";
@@ -43,16 +43,16 @@ and open the template in the editor.
                 for (var fila = 1; fila < dias; fila++) {
                     if (posicion === 6) {
                         mihtml += "<tr>";
-                        mihtml += "<td>" + fila + "</td>";
+                        mihtml += "<td class='dias'>" + fila + "</td>";
                         posicion = 0;
                     } else
                     if (posicion === 0) {
-                        mihtml += "<td>" + fila + "</td>";
+                        mihtml += "<td class='dias'>" + fila + "</td>";
                         posicion++;
                     } else {
-                        mihtml += "<td>" + fila + "</td>";
+                        mihtml += "<td class='dias'>" + fila + "</td>";
                         posicion++;
-                    }
+                    }                   
                 }
                 document.getElementById("contenedor").innerHTML = mihtml;
             }

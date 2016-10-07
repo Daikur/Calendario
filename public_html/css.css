@@ -8,41 +8,40 @@ and open the template in the editor.
     Author     : alumno
 */
 
-
-
-table, th, td {
-     
-    height: 25px;
-    width: 80px;
-    text-align: center;
-    
-    
-}
-
-table {
+.tabla{
+    height: 600px;
+    width: 800px;
     border-collapse: collapse;
-    border: 1px;
-    
-    
+    border: 1px solid black;
 }
 
-th {
-    background-color: #58D3F7;
+.cabecera {
+    background-color: #0174DF;
     text-decoration: blink;
+    font-size: 32px;
+    color: white;
 }
 
-td {
+.dias {
     background-color: #FAAC58;
     padding: 1em 1em;
     empty-cells: show;
+    border: 1px solid black;
+    text-align: center;
 }
 
 .diasemana {
-    background-color: #F5D0A9;
+    background-color: #DF7401;
+    text-align: center;
+    border: 1px solid black;
 }
 
-td:hover{
-    background-color: yellow;
+.dias:hover{
+    background-color: #DF7401;
     text-decoration: blink;
 }
 
+.boton{
+    text-decoration: none;
+    color: white;
+}
